@@ -1,1 +1,265 @@
+/* การตั้งค่าพื้นฐาน */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FEF9E1; /* สีพื้นหลัง */
+    box-sizing: border-box; /* ป้องกันการเกิดช่องว่างของ padding และ border */
+}
 
+#typing-effect-1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #C14600;
+    white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
+    overflow: hidden; /* ซ่อนข้อความที่ยังไม่ได้แสดง */
+    display: inline-block; /* ทำให้ข้อความและเส้นกระพริบอยู่ในบรรทัดเดียวกัน */
+    border-right: 2px solid #C14600; /* เส้นกระพริบ */
+    animation: typing-1 0.5s steps(30, end), blink 0.6s step-end infinite; /* เอฟเฟกต์พิมพ์และกระพริบ */
+}
+
+@keyframes typing-1 {
+    from {
+        width: 0; /* เริ่มต้นด้วยความกว้าง 0 */
+    }
+    to {
+        width: 6%; /* ขยายความกว้างจนถึงข้อความทั้งหมด */
+    }
+}
+
+#typing-effect-2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #C14600;
+    white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
+    overflow: hidden; /* ซ่อนข้อความที่ยังไม่ได้แสดง */
+    display: inline-block; /* ทำให้ข้อความและเส้นกระพริบอยู่ในบรรทัดเดียวกัน */
+    border-right: 2px solid #C14600; /* เส้นกระพริบ */
+    animation: typing-2 0.5s steps(30, end), blink 0.6s step-end infinite; /* เอฟเฟกต์พิมพ์และกระพริบ */
+}
+
+@keyframes typing-2 {
+    from {
+        width: 0; /* เริ่มต้นด้วยความกว้าง 0 */
+    }
+    to {
+        width: 6%; /* ขยายความกว้างจนถึงข้อความทั้งหมด */
+    }
+}
+
+#typing-effect-3 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #C14600;
+    white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
+    overflow: hidden; /* ซ่อนข้อความที่ยังไม่ได้แสดง */
+    display: inline-block; /* ทำให้ข้อความและเส้นกระพริบอยู่ในบรรทัดเดียวกัน */
+    border-right: 2px solid #C14600; /* เส้นกระพริบ */
+    animation: typing-3 0.5s steps(30, end), blink 0.6s step-end infinite; /* เอฟเฟกต์พิมพ์และกระพริบ */
+}
+
+@keyframes typing-3 {
+    from {
+        width: 0; /* เริ่มต้นด้วยความกว้าง 0 */
+    }
+    to {
+        width: 8%; /* ขยายความกว้างจนถึงข้อความทั้งหมด */
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent; /* ทำให้เส้นกระพริบหายไปครึ่งหนึ่งของรอบ */
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #E5D0AC; /* สีพื้นหลังของ header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* เงาใต้ header */
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #C14600; /* สีของโลโก้ */
+    text-decoration: none;
+}
+
+header .navlist {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* ระยะห่างระหว่างลิงก์ */
+    margin: 0;
+    padding: 0;
+    padding-right: 2%; /* ระยะห่างของลิงก์ขวาสุด */
+}
+
+header .navlist li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #C14600; /* สีของลิงก์ */
+    position: relative;
+}
+
+header .navlist li a:hover {
+    color: #C14600; /* สีของลิงก์เมื่อ hover */
+}
+
+header .navlist li a::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* เริ่มจากตรงกลาง */
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: currentColor; /* ใช้สีเดียวกับตัวอักษร */
+    transform: translateX(-50%); /* เลื่อนเส้นให้ตรงกลาง */
+    transition: width 0.3s ease;
+}
+
+header .navlist li a:hover::after {
+    width: 100%; /* ขยายเส้นใต้เมื่อ hover */
+}
+
+header .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+/* ปรับปุ่ม Dropdown ให้เหมือนกับปุ่มอื่นๆ */
+header .dropdown .dropbtn {
+    font-size: 18px; /* ขนาดตัวอักษรเหมือนลิงก์ */
+    font-weight: normal;
+    color: #C14600; /* สีของลิงก์ */
+    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+    background-color: transparent; /* พื้นหลังโปร่งใส */
+    border: none; /* ไม่มีเส้นขอบ */
+    padding: 0; /* เอา padding ออกเพื่อให้เหมือนลิงก์ */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer */
+    position: relative;
+}
+
+header .dropdown .dropbtn:hover {
+    color: #C14600; /* สีเมื่อ hover */
+}
+
+header .dropdown .dropbtn::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* เริ่มจากตรงกลาง */
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: currentColor; /* ใช้สีเดียวกับตัวอักษร */
+    transform: translateX(-50%); /* เลื่อนเส้นให้ตรงกลาง */
+    transition: width 0.3s ease;
+}
+
+header .dropdown .dropbtn:hover::after {
+    width: 100%; /* ขยายเส้นใต้เมื่อ hover */
+}
+
+/* ซ่อน dropdown-content โดยค่าเริ่มต้น */
+.dropdown-content {
+    display: none; /* ซ่อนเนื้อหา */
+    position: absolute; /* วางตำแหน่งแบบ absolute */
+    background-color: #FEF9E1; /* สีพื้นหลัง */
+    min-width: 160px; /* ความกว้างขั้นต่ำ */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+    z-index: 1; /* ทำให้ dropdown อยู่ด้านบน */
+    padding: 10px 0; /* เพิ่มระยะห่างด้านใน */
+    border-radius: 5px; /* มุมโค้ง */
+    min-width: 50px; /* กำหนดความกว้างขั้นต่ำของกล่อง */
+    border-radius: 5px; /* เพิ่มมุมโค้งให้กล่อง */
+}
+
+/* แสดง dropdown-content เมื่อ hover ปุ่ม dropdown */
+.dropdown:hover .dropdown-content {
+    display: block; /* แสดงเนื้อหา */
+}
+
+/* สไตล์ลิงก์ภายใน dropdown */
+.dropdown-content a {
+    color: #333; /* สีข้อความ */
+    padding: 8px 16px; /* ระยะห่างด้านใน */
+    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+    display: block; /* ทำให้ลิงก์แสดงเต็มความกว้าง */
+}
+
+/* เปลี่ยนสีลิงก์เมื่อ hover */
+.dropdown-content a:hover {
+    background-color: #FEF9E1; /* สีพื้นหลังเมื่อ hover */
+    color: #C14600; /* สีข้อความเมื่อ hover */
+}
+
+/* การตั้งค่าพื้นฐานสำหรับ card */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ card */
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    border-radius: 10px; /* เพิ่มมุมโค้งให้ card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
+}
+
+.card:hover {
+    transform: scale(1.05); /* ขยาย card ขึ้น 5% เมื่อ hover */
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3); /* เพิ่มเงาเมื่อ hover */
+}
+
+/* การตั้งค่ารูปภาพภายใน card */
+.card img {
+    max-width: 90%; /* รูปภาพจะมีขนาดเล็กกว่าการ์ดเล็กน้อย */
+    height: auto; /* ปรับความสูงอัตโนมัติตามอัตราส่วน */
+    border-radius: 8px; /* เพิ่มมุมโค้งให้รูปภาพ */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้รูปภาพ */
+}
+
+/* การตั้งค่าการจัดวาง card */
+.row {
+    display: flex; /* ใช้ flexbox เพื่อจัดตำแหน่ง */
+    justify-content: center; /* จัดให้อยู่ตรงกลางในแนวนอน */
+    flex-wrap: wrap; /* ทำให้บรรทัดใหม่เกิดขึ้นเมื่อพื้นที่ไม่พอ */
+    gap: 20px; /* ระยะห่างระหว่าง card */
+    margin: 20px 0; /* เพิ่มระยะห่างระหว่างบรรทัดของ card */
+}
+
+.column {
+    flex: 1 1 calc(25% - 20px); /* กำหนด card ให้มีขนาด 25% ของความกว้างหน้าจอ */
+    max-width: calc(25% - 20px); /* จำกัดความกว้างสูงสุด */
+    box-sizing: border-box; /* รวม padding และ border ในขนาด */
+}
+
+/* การปรับแต่งสำหรับหน้าจอขนาดเล็ก */
+@media screen and (max-width: 1024px) {
+    .column {
+        flex: 1 1 calc(33.33% - 20px); /* ลดขนาด card เป็น 33.33% */
+        max-width: calc(33.33% - 20px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .column {
+        flex: 1 1 calc(50% - 20px); /* ลดขนาด card เป็น 50% */
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .column {
+        flex: 1 1 100%; /* ใช้ความกว้างเต็มหน้าจอ */
+        max-width: 100%;
+    }
+
+    .card {
+        padding: 12px; /* ลด padding ของ card */
+    }
+
+    .card img {
+        max-width: 100%; /* รูปภาพใช้พื้นที่เต็มของ card */
+    }
+}
