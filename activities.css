@@ -196,65 +196,70 @@ header .dropdown .dropbtn:hover::after {
     color: #C14600; /* สีข้อความเมื่อ hover */
 }
 
-/* การจัดวางสำหรับ .row และ .column */
-.row {
-    display: flex; /* ใช้ flexbox เพื่อจัดตำแหน่ง */
-    justify-content: center; /* จัดให้อยู่ตรงกลางในแนวนอน */
-    flex-wrap: wrap; /* ทำให้บรรทัดใหม่เกิดขึ้นเมื่อพื้นที่ไม่พอ */
-    margin: 20px 0; /* เพิ่มระยะห่างระหว่างบรรทัดของ cards */
-}
-
-.column {
-    float: none; /* ยกเลิก float */
-    width: 25%; /* กำหนดความกว้างของแต่ละ card */
-    padding: 0 10px;
-    margin-bottom: 20px; /* เพิ่มระยะห่างระหว่างบรรทัด */
-}
-
+/* การตั้งค่าพื้นฐานสำหรับ card */
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ card */
     padding: 16px;
     text-align: center;
     background-color: #f1f1f1;
+    border-radius: 10px; /* เพิ่มมุมโค้งให้ card */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
 }
 
 .card:hover {
-    transform: scale(1.05); /* ขยาย card ขึ้น 5% */
+    transform: scale(1.05); /* ขยาย card ขึ้น 5% เมื่อ hover */
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3); /* เพิ่มเงาเมื่อ hover */
+}
+
+/* การตั้งค่ารูปภาพภายใน card */
+.card img {
+    max-width: 90%; /* รูปภาพจะมีขนาดเล็กกว่าการ์ดเล็กน้อย */
+    height: auto; /* ปรับความสูงอัตโนมัติตามอัตราส่วน */
+    border-radius: 8px; /* เพิ่มมุมโค้งให้รูปภาพ */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้รูปภาพ */
+}
+
+/* การตั้งค่าการจัดวาง card */
+.row {
+    display: flex; /* ใช้ flexbox เพื่อจัดตำแหน่ง */
+    justify-content: center; /* จัดให้อยู่ตรงกลางในแนวนอน */
+    flex-wrap: wrap; /* ทำให้บรรทัดใหม่เกิดขึ้นเมื่อพื้นที่ไม่พอ */
+    gap: 20px; /* ระยะห่างระหว่าง card */
+    margin: 20px 0; /* เพิ่มระยะห่างระหว่างบรรทัดของ card */
+}
+
+.column {
+    flex: 1 1 calc(25% - 20px); /* กำหนด card ให้มีขนาด 25% ของความกว้างหน้าจอ */
+    max-width: calc(25% - 20px); /* จำกัดความกว้างสูงสุด */
+    box-sizing: border-box; /* รวม padding และ border ในขนาด */
 }
 
 /* การปรับแต่งสำหรับหน้าจอขนาดเล็ก */
 @media screen and (max-width: 1024px) {
-    .info-text, .info-img {
-        max-width: 100%; /* ให้ข้อความและรูปภาพใช้พื้นที่เต็ม */
-    }
-
     .column {
-        width: 50%; /* ลดความกว้างของ card ลงครึ่งหนึ่ง */
+        flex: 1 1 calc(33.33% - 20px); /* ลดขนาด card เป็น 33.33% */
+        max-width: calc(33.33% - 20px);
     }
 }
 
 @media screen and (max-width: 768px) {
-    .info {
-        flex-direction: column; /* จัดวางเนื้อหาในแนวตั้ง */
-    }
-
     .column {
-        width: 100%; /* ให้ card ใช้พื้นที่เต็ม */
+        flex: 1 1 calc(50% - 20px); /* ลดขนาด card เป็น 50% */
+        max-width: calc(50% - 20px);
     }
 }
 
 @media screen and (max-width: 480px) {
-    .info {
-        padding: 20px; /* ลด padding สำหรับหน้าจอเล็ก */
-    }
-
-    .info-text {
-        font-size: 16px; /* ลดขนาดตัวอักษร */
+    .column {
+        flex: 1 1 100%; /* ใช้ความกว้างเต็มหน้าจอ */
+        max-width: 100%;
     }
 
     .card {
         padding: 12px; /* ลด padding ของ card */
+    }
+
+    .card img {
+        max-width: 100%; /* รูปภาพใช้พื้นที่เต็มของ card */
     }
 }
