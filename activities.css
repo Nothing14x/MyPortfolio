@@ -1,21 +1,10 @@
+/* การตั้งค่าพื้นฐาน */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #FEF9E1; /* สีพื้นหลัง */
     box-sizing: border-box; /* ป้องกันการเกิดช่องว่างของ padding และ border */
-}
-.info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 50px; /* ระยะห่างของ info จากขอบ */
-    gap: 20px; /* ระยะห่างระหว่าง info-text และ info-img */
-}
-
-.info-text {
-    max-width: 50%; /* จำกัดความกว้างของข้อความ */
 }
 
 #typing-effect-1 {
@@ -82,19 +71,6 @@ body {
     50% {
         border-color: transparent; /* ทำให้เส้นกระพริบหายไปครึ่งหนึ่งของรอบ */
     }
-}
-
-.info-text p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #C14600;
-}
-
-.info-img img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px; /* เพิ่มมุมโค้งให้รูปภาพ */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้รูปภาพ */
 }
 
 header {
@@ -220,12 +196,7 @@ header .dropdown .dropbtn:hover::after {
     color: #C14600; /* สีข้อความเมื่อ hover */
 }
 
-.column {
-    float: left;
-    width: 25%;
-    padding: 0 10px;
-}
-  
+/* การจัดวางสำหรับ .row และ .column */
 .row {
     display: flex; /* ใช้ flexbox เพื่อจัดตำแหน่ง */
     justify-content: center; /* จัดให้อยู่ตรงกลางในแนวนอน */
@@ -235,7 +206,7 @@ header .dropdown .dropbtn:hover::after {
 
 .column {
     float: none; /* ยกเลิก float */
-    width: 500px; /* กำหนดความกว้างของแต่ละ card */
+    width: 25%; /* กำหนดความกว้างของแต่ละ card */
     padding: 0 10px;
     margin-bottom: 20px; /* เพิ่มระยะห่างระหว่างบรรทัด */
 }
@@ -253,10 +224,37 @@ header .dropdown .dropbtn:hover::after {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3); /* เพิ่มเงาเมื่อ hover */
 }
 
-@media screen and (max-width: 600px) {
-    .column {
-      width: 100%;
-      display: block;
-      margin-bottom: 20px;
+/* การปรับแต่งสำหรับหน้าจอขนาดเล็ก */
+@media screen and (max-width: 1024px) {
+    .info-text, .info-img {
+        max-width: 100%; /* ให้ข้อความและรูปภาพใช้พื้นที่เต็ม */
     }
-  }
+
+    .column {
+        width: 50%; /* ลดความกว้างของ card ลงครึ่งหนึ่ง */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .info {
+        flex-direction: column; /* จัดวางเนื้อหาในแนวตั้ง */
+    }
+
+    .column {
+        width: 100%; /* ให้ card ใช้พื้นที่เต็ม */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .info {
+        padding: 20px; /* ลด padding สำหรับหน้าจอเล็ก */
+    }
+
+    .info-text {
+        font-size: 16px; /* ลดขนาดตัวอักษร */
+    }
+
+    .card {
+        padding: 12px; /* ลด padding ของ card */
+    }
+}
