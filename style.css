@@ -1,0 +1,180 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FEF9E1; /* สีพื้นหลัง */
+}
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px; /* ระยะห่างของ info จากขอบ */
+    gap: 20px; /* ระยะห่างระหว่าง info-text และ info-img */
+}
+
+.info-text {
+    max-width: 50%; /* จำกัดความกว้างของข้อความ */
+}
+
+#typing-effect {
+    font-size: 32px;
+    font-weight: bold;
+    color: #C14600;
+    white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
+    overflow: hidden; /* ซ่อนข้อความที่ยังไม่ได้แสดง */
+    display: inline-block; /* ทำให้ข้อความและเส้นกระพริบอยู่ในบรรทัดเดียวกัน */
+    border-right: 2px solid #C14600; /* เส้นกระพริบ */
+    animation: typing 2s steps(30, end), blink 0.6s step-end infinite; /* เอฟเฟกต์พิมพ์และกระพริบ */
+}
+
+@keyframes typing {
+    from {
+        width: 0; /* เริ่มต้นด้วยความกว้าง 0 */
+    }
+    to {
+        width: 45%; /* ขยายความกว้างจนถึงข้อความทั้งหมด */
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent; /* ทำให้เส้นกระพริบหายไปครึ่งหนึ่งของรอบ */
+    }
+}
+
+.info-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #C14600;
+}
+
+.info-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* เพิ่มมุมโค้งให้รูปภาพ */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้รูปภาพ */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #E5D0AC; /* สีพื้นหลังของ header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* เงาใต้ header */
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #C14600; /* สีของโลโก้ */
+    text-decoration: none;
+}
+
+header .navlist {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* ระยะห่างระหว่างลิงก์ */
+    margin: 0;
+    padding: 0;
+    padding-right: 2%; /* ระยะห่างของลิงก์ขวาสุด */
+}
+
+header .navlist li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #C14600; /* สีของลิงก์ */
+    position: relative;
+}
+
+header .navlist li a:hover {
+    color: #C14600; /* สีของลิงก์เมื่อ hover */
+}
+
+header .navlist li a::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* เริ่มจากตรงกลาง */
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: currentColor; /* ใช้สีเดียวกับตัวอักษร */
+    transform: translateX(-50%); /* เลื่อนเส้นให้ตรงกลาง */
+    transition: width 0.3s ease;
+}
+
+header .navlist li a:hover::after {
+    width: 100%; /* ขยายเส้นใต้เมื่อ hover */
+}
+
+header .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+/* ปรับปุ่ม Dropdown ให้เหมือนกับปุ่มอื่นๆ */
+header .dropdown .dropbtn {
+    font-size: 18px; /* ขนาดตัวอักษรเหมือนลิงก์ */
+    font-weight: normal;
+    color: #C14600; /* สีของลิงก์ */
+    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+    background-color: transparent; /* พื้นหลังโปร่งใส */
+    border: none; /* ไม่มีเส้นขอบ */
+    padding: 0; /* เอา padding ออกเพื่อให้เหมือนลิงก์ */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer */
+    position: relative;
+}
+
+header .dropdown .dropbtn:hover {
+    color: #C14600; /* สีเมื่อ hover */
+}
+
+header .dropdown .dropbtn::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* เริ่มจากตรงกลาง */
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: currentColor; /* ใช้สีเดียวกับตัวอักษร */
+    transform: translateX(-50%); /* เลื่อนเส้นให้ตรงกลาง */
+    transition: width 0.3s ease;
+}
+
+header .dropdown .dropbtn:hover::after {
+    width: 100%; /* ขยายเส้นใต้เมื่อ hover */
+}
+
+/* ซ่อน dropdown-content โดยค่าเริ่มต้น */
+.dropdown-content {
+    display: none; /* ซ่อนเนื้อหา */
+    position: absolute; /* วางตำแหน่งแบบ absolute */
+    background-color: #FEF9E1; /* สีพื้นหลัง */
+    min-width: 160px; /* ความกว้างขั้นต่ำ */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+    z-index: 1; /* ทำให้ dropdown อยู่ด้านบน */
+    padding: 10px 0; /* เพิ่มระยะห่างด้านใน */
+    border-radius: 5px; /* มุมโค้ง */
+    min-width: 50px; /* กำหนดความกว้างขั้นต่ำของกล่อง */
+    border-radius: 5px; /* เพิ่มมุมโค้งให้กล่อง */
+}
+
+/* แสดง dropdown-content เมื่อ hover ปุ่ม dropdown */
+.dropdown:hover .dropdown-content {
+    display: block; /* แสดงเนื้อหา */
+}
+
+/* สไตล์ลิงก์ภายใน dropdown */
+.dropdown-content a {
+    color: #333; /* สีข้อความ */
+    padding: 8px 16px; /* ระยะห่างด้านใน */
+    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+    display: block; /* ทำให้ลิงก์แสดงเต็มความกว้าง */
+}
+
+/* เปลี่ยนสีลิงก์เมื่อ hover */
+.dropdown-content a:hover {
+    background-color: #FEF9E1; /* สีพื้นหลังเมื่อ hover */
+    color: #C14600; /* สีข้อความเมื่อ hover */
+}
