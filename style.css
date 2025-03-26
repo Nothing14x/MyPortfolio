@@ -4,6 +4,7 @@ body{
     font-family: 'Poppins', sans-serif;
     background-color: #FEF9E1; /* สีพื้นหลัง */
 }
+/* การตั้งค่าพื้นฐานสำหรับ .info */
 .info {
     display: flex;
     justify-content: center;
@@ -11,10 +12,70 @@ body{
     text-align: center;
     padding: 50px; /* ระยะห่างของ info จากขอบ */
     gap: 20px; /* ระยะห่างระหว่าง info-text และ info-img */
+    flex-wrap: wrap; /* ทำให้เนื้อหาขึ้นบรรทัดใหม่เมื่อพื้นที่ไม่พอ */
 }
 
+/* การตั้งค่าข้อความ */
 .info-text {
     max-width: 50%; /* จำกัดความกว้างของข้อความ */
+    flex: 1; /* ให้ข้อความปรับขนาดตามพื้นที่ */
+    font-size: 18px; /* ขนาดตัวอักษร */
+    line-height: 1.6; /* ระยะห่างระหว่างบรรทัด */
+    color: #C14600; /* สีข้อความ */
+}
+
+/* การตั้งค่ารูปภาพให้อยู่ตรงกลาง */
+.info-img {
+    padding-top: 10px; /* ระยะห่างของรูปภาพจากข้อความ */
+    display: flex; /* ใช้ Flexbox */
+    justify-content: center; /* จัดให้อยู่ตรงกลางในแนวนอน */
+    align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+}
+
+/* การตั้งค่ารูปภาพ */
+.info-img img {
+    max-width: 30%; /* รูปภาพจะปรับขนาดตามพื้นที่ */
+    height: auto; /* รักษาอัตราส่วนของรูปภาพ */
+    border-radius: 50%; /* เพิ่มมุมโค้งให้รูปภาพ */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้รูปภาพ */
+    flex: 1; /* ให้รูปภาพปรับขนาดตามพื้นที่ */
+}
+
+/* การปรับแต่งสำหรับหน้าจอขนาดเล็ก */
+@media screen and (max-width: 1024px) {
+    .info-text {
+        max-width: 100%; /* ให้ข้อความใช้พื้นที่เต็ม */
+        font-size: 16px; /* ลดขนาดตัวอักษร */
+    }
+
+    .info-img img {
+        max-width: 80%; /* ลดขนาดรูปภาพ */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .info {
+        flex-direction: column; /* จัดวางเนื้อหาในแนวตั้ง */
+        padding: 20px; /* ลด padding สำหรับหน้าจอเล็ก */
+    }
+
+    .info-text {
+        font-size: 14px; /* ลดขนาดตัวอักษร */
+    }
+
+    .info-img img {
+        max-width: 90%; /* ลดขนาดรูปภาพเพิ่มเติม */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .info-text {
+        font-size: 12px; /* ลดขนาดตัวอักษรสำหรับหน้าจอมือถือ */
+    }
+
+    .info-img img {
+        max-width: 100%; /* รูปภาพใช้พื้นที่เต็ม */
+    }
 }
 
 #typing-effect {
@@ -41,19 +102,6 @@ body{
     50% {
         border-color: transparent; /* ทำให้เส้นกระพริบหายไปครึ่งหนึ่งของรอบ */
     }
-}
-
-.info-text p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #C14600;
-}
-
-.info-img img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px; /* เพิ่มมุมโค้งให้รูปภาพ */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้รูปภาพ */
 }
 
 header {
