@@ -79,7 +79,7 @@ body{
 }
 
 #typing-effect {
-    font-size: 32px;
+    font-size: 25px;
     font-weight: bold;
     color: #C14600;
     white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
