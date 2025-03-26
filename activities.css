@@ -95,7 +95,6 @@ header .navlist {
     gap: 20px; /* ระยะห่างระหว่างลิงก์ */
     margin: 0;
     padding: 0;
-    padding-right: 2%; /* ระยะห่างของลิงก์ขวาสุด */
 }
 
 header .navlist li a {
@@ -163,7 +162,7 @@ header .dropdown .dropbtn:hover::after {
     width: 100%; /* ขยายเส้นใต้เมื่อ hover */
 }
 
-/* ซ่อน dropdown-content โดยค่าเริ่มต้น */
+/* ปรับตำแหน่ง dropdown-content */
 .dropdown-content {
     display: none; /* ซ่อนเนื้อหา */
     position: absolute; /* วางตำแหน่งแบบ absolute */
@@ -173,8 +172,8 @@ header .dropdown .dropbtn:hover::after {
     z-index: 1; /* ทำให้ dropdown อยู่ด้านบน */
     padding: 10px 0; /* เพิ่มระยะห่างด้านใน */
     border-radius: 5px; /* มุมโค้ง */
-    min-width: 50px; /* กำหนดความกว้างขั้นต่ำของกล่อง */
-    border-radius: 5px; /* เพิ่มมุมโค้งให้กล่อง */
+    right: 0; /* จัดตำแหน่ง dropdown-content ให้อยู่ในขอบจอ */
+    overflow: hidden; /* ป้องกันการล้น */
 }
 
 /* แสดง dropdown-content เมื่อ hover ปุ่ม dropdown */
@@ -192,7 +191,7 @@ header .dropdown .dropbtn:hover::after {
 
 /* เปลี่ยนสีลิงก์เมื่อ hover */
 .dropdown-content a:hover {
-    background-color: #FEF9E1; /* สีพื้นหลังเมื่อ hover */
+    background-color: #f1f1f1; /* สีพื้นหลังเมื่อ hover */
     color: #C14600; /* สีข้อความเมื่อ hover */
 }
 
